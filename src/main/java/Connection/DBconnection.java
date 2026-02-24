@@ -6,18 +6,19 @@ import java.sql.SQLException;
 
 public class DBconnection {
 
-    public Connection getConnection()  {
+    public Connection getConnection() {
+        String url = System.getenv("JDBC_URL");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
 
-        try{
-            String jdbcURl = System.getenv("JDBC_URl"); //
-            String user = System.getenv("USER"); //mini_dish_db_manager
-            String password = System.getenv("PASSWORD"); //123456
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/mini_dish_db", "postgres", "morgan 47");
+        if (url == null) url = "jdbc:postgresql://localhost:5432/mini_dish_db";
+        if (user == null) user = "postgres";
+        if (password == null) password = "morgan 47";
+
+        try {
+            return DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
-
-
 }

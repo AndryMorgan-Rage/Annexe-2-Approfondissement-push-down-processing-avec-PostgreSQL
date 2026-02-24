@@ -6,7 +6,7 @@ CREATE TABLE voter (
                        id SERIAL PRIMARY KEY,
                        name TEXT NOT NULL
 );
-CREATE TYPE vote_type AS ENUM(‘VALID’, ‘BLANK’, ‘NULL’);
+CREATE TYPE vote_type AS ENUM('VALID', 'BLANK', 'NULL');
 CREATE TABLE vote (
                       id SERIAL PRIMARY KEY,
                       candidate_id INT REFERENCES candidate(id),
