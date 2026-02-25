@@ -27,7 +27,6 @@ class DataRetrieverTest {
     @Test
     void testCountAllVotes() {
         long count = retriever.countAllVotes();
-        // D'après vos données de départ, on attend 6 votes
         assertEquals(6, count, "Le nombre total de votes doit être 6");
     }
 
@@ -36,7 +35,6 @@ class DataRetrieverTest {
         List<VoteTypeCount> results = retriever.countVotesByType();
         Assertions.assertNotNull(results);
         Assertions.assertFalse(results.isEmpty());
-        // On vérifie si on trouve bien le type VALID (qui a 3 votes)
         boolean foundValid = results.stream()
                 .anyMatch(v -> v.getVoteType().equals(voteType.VALID) && v.getCount() == 3);
         Assertions.assertTrue(foundValid, "On devrait trouver 3 votes VALID");
@@ -45,7 +43,6 @@ class DataRetrieverTest {
     @Test
     void testComputeTurnoutRate() {
         double rate = retriever.computeTurnoutRate();
-        // 6 votants sur 6 électeurs = 100.0%
         assertEquals(100.0, rate, 0.01);
     }
 
