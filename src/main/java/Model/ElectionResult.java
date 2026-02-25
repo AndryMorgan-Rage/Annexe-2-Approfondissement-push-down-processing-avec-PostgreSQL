@@ -14,4 +14,12 @@ public class ElectionResult {
         return "ElectionResult(candidateName=" + candidateName +
                 ", validVoteCount=" + validVoteCount + ")";
     }
+
+    public String getCandidateName() {
+        return candidateName;
+    }
+
+    public int getValidVoteCount() {
+        return Math.toIntExact(validVoteCount);
+    }
 }

@@ -9,7 +9,9 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        DataRetriever retriever = new DataRetriever();
+
+        Connection maConnection = new DBconnection().getConnection();
+        DataRetriever retriever = new DataRetriever(maConnection);
 
         long count = retriever.countAllVotes();
         System.out.println("Total votes: " + count);

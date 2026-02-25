@@ -16,6 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataRetriever {
+
+
+    private final Connection connection;
+    public DataRetriever(Connection connection) {
+        this.connection = connection;
+    }
+
     public long countAllVotes() {
         String sql = "SELECT COUNT(id) AS total_votes FROM vote";
         long totalVotes = 0;
