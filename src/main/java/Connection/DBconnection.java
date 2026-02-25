@@ -11,7 +11,7 @@ public class DBconnection {
         String user = System.getenv("DB_USER");
         String password = System.getenv("DB_PASSWORD");
 
-        if (url == null) url = "jdbc:postgresql://localhost:5432/mini_dish_db";
+        if (url == null) url = "jdbc:postgresql://localhost:5432/election_td";
         if (user == null) user = "postgres";
         if (password == null) password = "morgan 47";
 
